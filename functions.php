@@ -243,6 +243,18 @@ function saveResult(int $userId, string $topic, int $score, int $total) {
     );
 }
 
+/**
+ * Delete a single result row — only if it belongs to the given user.
+ */
+function deleteResult(int $resultId, int $userId): bool {
+    $affected = execute(
+        'DELETE FROM results WHERE id = ? AND user_id = ?',
+        'ii',
+        $resultId, $userId
+    );
+    return $affected > 0;
+}
+
 // ─────────────────────────────────────────────
 // Flash message helpers
 // ─────────────────────────────────────────────
