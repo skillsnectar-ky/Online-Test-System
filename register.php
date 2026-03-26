@@ -88,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="auth-card">
         <div class="logo">
             <img src="assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
-            <h1><?= SITE_NAME ?></h1>
             <p>Create your student account</p>
         </div>
 
