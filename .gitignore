@@ -1,0 +1,32 @@
+# Aspirian.pk Online Test System — .gitignore
+
+# ── Sensitive config (rename config.php to config.example.php for sharing) ──
+# config.php  ← uncomment this if you don't want DB credentials on GitHub
+
+# ── One-time utility (should be deleted after use anyway) ───
+update_admin_password.php
+
+# ── System / IDE files ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ── PHP logs / error files ───────────────────────────────────
+*.log
+error_log
+php_errors.log
+
+# ── Uploaded files (if you add an uploads/ folder later) ────
+uploads/
+
+# ── Composer / Node (if added later) ────────────────────────
+vendor/
+node_modules/
+composer.lock
+package-lock.json
