@@ -1,2 +1,5 @@
 # Aspirian.pk Online Test System
 Options -Indexes
+
+# Prevent WordPress from intercepting our PHP files
+RewriteEngine Off
