@@ -60,17 +60,21 @@
                 notice.textContent = 'Time is up! Submitting your test automatically...';
                 document.body.prepend(notice);
 
-                setTimeout(function () { form.submit(); }, 1500);
+                setTimeout(function () {
+                    window._testSubmitting = true;
+                    form.submit();
+                }, 1500);
             }
         }
     }, 1000);
 
     /**
      * Warn user before leaving the page during a test
+     * (only active when no intentional submit is in progress)
      */
     window.addEventListener('beforeunload', function (e) {
         const form = document.getElementById('test-form');
-        if (form && totalSeconds > 0) {
+        if (form && totalSeconds > 0 && !window._testSubmitting) {
             e.preventDefault();
             e.returnValue = '';
         }

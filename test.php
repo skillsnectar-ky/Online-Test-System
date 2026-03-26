@@ -133,20 +133,107 @@ if (empty($mcqs)) {
         <!-- Submit button -->
         <div style="text-align:center; margin-top:30px;">
             <button
-                type="submit"
+                type="button"
                 class="btn btn-primary"
                 style="padding:14px 40px; font-size:1.05rem;"
-                onclick="return confirm('Are you sure you want to submit the test?');"
+                onclick="showSubmitModal()"
             >
                 ✅ Submit Test
             </button>
-            <a href="dashboard.php" class="btn btn-light" style="margin-left:12px;" onclick="return confirm('Are you sure? Your progress will be lost.');">
+            <button type="button" class="btn btn-light" style="margin-left:12px;" onclick="showCancelModal()">
                 Cancel
-            </a>
+            </button>
         </div>
 
     </form>
 </div>
+
+<!-- ── Custom Confirm Modal ─────────────────────────────── -->
+<div id="confirm-modal" style="
+    display:none; position:fixed; inset:0; z-index:9999;
+    background:rgba(10,31,53,.80); backdrop-filter:blur(4px);
+    align-items:center; justify-content:center;
+">
+    <div style="
+        background:#0a1f35; border-radius:14px; padding:38px 34px;
+        width:100%; max-width:420px; margin:0 20px;
+        border-top:4px solid #0cc0c0;
+        box-shadow:0 20px 70px rgba(0,0,0,.7);
+        text-align:center;
+    ">
+        <div id="modal-icon" style="font-size:3rem; margin-bottom:14px;"></div>
+        <h3 id="modal-title" style="color:#fff; font-size:1.25rem; margin-bottom:10px; font-weight:700;"></h3>
+        <p id="modal-msg" style="color:rgba(255,255,255,.68); font-size:.93rem; margin-bottom:28px; line-height:1.65;"></p>
+        <div style="display:flex; gap:12px; justify-content:center;">
+            <button onclick="closeModal()" style="
+                padding:11px 30px; border-radius:8px;
+                border:1.5px solid rgba(255,255,255,.25);
+                background:transparent; color:rgba(255,255,255,.8);
+                font-size:.95rem; font-weight:600; cursor:pointer;
+            ">Cancel</button>
+            <button id="modal-ok-btn" style="
+                padding:11px 30px; border-radius:8px; border:none;
+                background:#0cc0c0; color:#fff;
+                font-size:.95rem; font-weight:700; cursor:pointer;
+            "></button>
+        </div>
+    </div>
+</div>
+
+<script>
+var _pendingAction = null;
+
+function showModal(icon, title, msg, okText, action) {
+    document.getElementById('modal-icon').textContent  = icon;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-msg').textContent   = msg;
+    document.getElementById('modal-ok-btn').textContent = okText;
+    _pendingAction = action;
+    var m = document.getElementById('confirm-modal');
+    m.style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('confirm-modal').style.display = 'none';
+    _pendingAction = null;
+}
+
+document.getElementById('modal-ok-btn').addEventListener('click', function () {
+    closeModal();
+    if (_pendingAction) _pendingAction();
+});
+
+// Close modal on backdrop click
+document.getElementById('confirm-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+function showSubmitModal() {
+    showModal(
+        '📝',
+        'Submit Test?',
+        'Are you sure you want to submit? You cannot change your answers after submission.',
+        'Submit Now',
+        function () {
+            window._testSubmitting = true;
+            document.getElementById('test-form').submit();
+        }
+    );
+}
+
+function showCancelModal() {
+    showModal(
+        '⚠️',
+        'Cancel Test?',
+        'Your progress will not be saved. Are you sure you want to go back to the dashboard?',
+        'Yes, Cancel',
+        function () {
+            window._testSubmitting = true;
+            window.location.href = 'dashboard.php';
+        }
+    );
+}
+</script>
 
 <!-- Footer -->
 <footer class="footer">
