@@ -96,7 +96,7 @@ function csrfVerify(): void {
  * @param string $types  MySQLi bind_param types string
  * @param mixed  ...$params  Values to bind
  */
-function fetchOne(string $sql, string $types = '', ...$params): ?array {
+function fetchOne(string $sql, string $types = '', ...$params) {
     global $conn;
     $stmt = $conn->prepare($sql);
     if (!$stmt) return null;
@@ -113,7 +113,7 @@ function fetchOne(string $sql, string $types = '', ...$params): ?array {
 /**
  * Fetch all rows as an array of associative arrays.
  */
-function fetchAll(string $sql, string $types = '', ...$params): array {
+function fetchAll(string $sql, string $types = '', ...$params) {
     global $conn;
     $stmt = $conn->prepare($sql);
     if (!$stmt) return [];
@@ -131,7 +131,7 @@ function fetchAll(string $sql, string $types = '', ...$params): array {
  * Execute an INSERT/UPDATE/DELETE query.
  * Returns insert ID for INSERT, affected rows otherwise, or false on error.
  */
-function execute(string $sql, string $types = '', ...$params): int|false {
+function execute(string $sql, string $types = '', ...$params) {
     global $conn;
     $stmt = $conn->prepare($sql);
     if (!$stmt) return false;
@@ -235,7 +235,7 @@ function gradeTest(array $answers): array {
 /**
  * Save a test result in the database.
  */
-function saveResult(int $userId, string $topic, int $score, int $total): int|false {
+function saveResult(int $userId, string $topic, int $score, int $total) {
     return execute(
         'INSERT INTO results (user_id, topic, score, total) VALUES (?, ?, ?, ?)',
         'isii',
