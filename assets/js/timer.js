@@ -68,25 +68,4 @@
         }
     }, 1000);
 
-    /**
-     * Warn user before leaving the page during a test
-     * (only active when no intentional submit is in progress)
-     */
-    window.addEventListener('beforeunload', function (e) {
-        const form = document.getElementById('test-form');
-        if (form && totalSeconds > 0 && !window._testSubmitting) {
-            e.preventDefault();
-            e.returnValue = '';
-        }
-    });
-
-    /**
-     * Remove beforeunload warning when form is intentionally submitted
-     */
-    const form = document.getElementById('test-form');
-    if (form) {
-        form.addEventListener('submit', function () {
-            window.onbeforeunload = null;
-        });
-    }
 })();
