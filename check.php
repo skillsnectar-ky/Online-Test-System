@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 echo "<h2>PHP Version: " . phpversion() . "</h2>";
 
 // Test DB connection
-$conn = @mysqli_connect('localhost', 'u440219551_onlinetest', 'ArfatGift@2018', 'u440219551_online_test');
+$conn = @mysqli_connect('localhost', 'u440219551_online_test', 'ArfatGift@2018', 'u440219551_onlinetest');
 if ($conn) {
     echo "<p style='color:green'>✅ Database connected OK</p>";
     mysqli_close($conn);

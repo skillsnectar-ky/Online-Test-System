@@ -7,9 +7,9 @@
 
 // ── Database credentials ────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_USER', 'u440219551_onlinetest');  // Hostinger DB username
-define('DB_PASS', 'ArfatGift@2018');          // Hostinger DB password
-define('DB_NAME', 'u440219551_online_test');  // Hostinger DB name
+define('DB_USER', 'u440219551_online_test');  // Hostinger DB username
+define('DB_PASS', 'ArfatGift@2018');           // Hostinger DB password
+define('DB_NAME', 'u440219551_onlinetest');    // Hostinger DB name
 
 // ── Site settings ────────────────────────────────────────────
 define('SITE_NAME',  'Aspirian.pk');
