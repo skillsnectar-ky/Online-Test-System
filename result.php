@@ -52,7 +52,10 @@ if ($pct >= 80) {
 <!-- Navbar -->
 <nav class="navbar">
     <div class="container">
-        <a class="navbar-brand" href="dashboard.php"><?= SITE_NAME ?></a>
+        <a class="navbar-brand" href="dashboard.php">
+            <img src="assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
+            <?= SITE_NAME ?>
+        </a>
         <div class="navbar-nav">
             <a href="dashboard.php">Dashboard</a>
             <a href="logout.php">Logout</a>

@@ -56,7 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <nav class="navbar">
     <div class="container">
-        <a class="navbar-brand" href="#"><?= SITE_NAME ?></a>
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
+            <?= SITE_NAME ?>
+        </a>
         <div class="navbar-nav">
             <a href="../index.php">Student Login</a>
         </div>
@@ -66,8 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="auth-wrapper">
     <div class="auth-card">
         <div class="logo">
-            <h1>🛡️ Admin</h1>
-            <p><?= SITE_NAME ?> — Admin Login</p>
+            <img src="../assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
+            <h1><?= SITE_NAME ?> Admin</h1>
+            <p>Secure Admin Login</p>
         </div>
 
         <?php if ($error): ?>

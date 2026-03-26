@@ -63,7 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- Navbar -->
 <nav class="navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.php"><?= SITE_NAME ?></a>
+        <a class="navbar-brand" href="index.php">
+            <img src="assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
+            <?= SITE_NAME ?>
+        </a>
         <div class="navbar-nav">
             <a href="register.php">Register</a>
             <a href="admin/login.php">Admin Login</a>
@@ -75,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="auth-wrapper">
     <div class="auth-card">
         <div class="logo">
+            <img src="assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
             <h1><?= SITE_NAME ?></h1>
             <p>Online Test System — Student Login</p>
         </div>
