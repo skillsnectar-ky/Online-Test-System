@@ -199,8 +199,9 @@ function closeModal() {
 }
 
 document.getElementById('modal-ok-btn').addEventListener('click', function () {
+    var action = _pendingAction;
     closeModal();
-    if (_pendingAction) _pendingAction();
+    if (action) action();
 });
 
 // Close modal on backdrop click
