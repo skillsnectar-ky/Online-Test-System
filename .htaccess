@@ -1,32 +1,34 @@
 # ============================================================
 # Aspirian.pk Online Test System — .htaccess
-# Apache security and URL configuration
+# Apache 2.4 compatible (Hostinger)
 # ============================================================
 
-# ── Enable rewrite engine ────────────────────────────────────
 Options -Indexes
 ServerSignature Off
 
 # ── Protect sensitive files from direct browser access ──────
 <FilesMatch "\.(sql|log|env|json|lock|md)$">
-    Order allow,deny
-    Deny from all
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
-# ── Block access to internal PHP helpers ────────────────────
+# ── Block direct access to internal PHP helpers ─────────────
 <FilesMatch "^(_header|_footer|functions|config)\.php$">
-    Order allow,deny
-    Deny from all
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
-# ── Prevent update_admin_password.php from being accessed ───
-# (Remove the comment below after initial setup and delete the file)
-# <Files "update_admin_password.php">
-#     Order allow,deny
-#     Deny from all
-# </Files>
-
-# ── PHP session security headers ────────────────────────────
+# ── Security headers ─────────────────────────────────────────
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"
@@ -42,10 +44,10 @@ ServerSignature Off
 # ── Browser caching for static assets ───────────────────────
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresByType text/css             "access plus 1 month"
+    ExpiresByType text/css               "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/png            "access plus 1 year"
-    ExpiresByType image/jpeg           "access plus 1 year"
-    ExpiresByType image/gif            "access plus 1 year"
-    ExpiresByType image/svg+xml        "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/gif              "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
 </IfModule>
