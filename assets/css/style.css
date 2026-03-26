@@ -16,7 +16,7 @@
     --success:     #16a34a;
     --danger:      #dc2626;
     --warning:     #d97706;
-    --bg:          #f0f6f6;   /* Light teal-tinted background */
+    --bg:          #f0ffff;   /* Very light cyan background */
     --card:        #ffffff;
     --text:        #1e293b;
     --muted:       #64748b;
@@ -106,13 +106,14 @@ a:hover { text-decoration: underline; }
 }
 
 .auth-card {
-    background: var(--card);
+    background: var(--navbar-bg);
     border-radius: var(--radius);
-    box-shadow: 0 8px 40px rgba(0,0,0,.25);
+    box-shadow: 0 8px 40px rgba(0,0,0,.45);
     padding: 40px 36px;
     width: 100%;
     max-width: 440px;
     border-top: 4px solid var(--primary);
+    color: #fff;
 }
 
 .auth-card .logo {
@@ -133,7 +134,7 @@ a:hover { text-decoration: underline; }
 }
 
 .auth-card .logo p {
-    color: var(--muted);
+    color: rgba(255,255,255,.65);
     font-size: .9rem;
     margin-top: 4px;
 }
@@ -150,6 +151,26 @@ a:hover { text-decoration: underline; }
     font-size: .9rem;
     color: var(--text);
 }
+
+.auth-card .form-group label { color: rgba(255,255,255,.9); }
+
+.auth-card .form-control {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.2);
+    color: #fff;
+}
+
+.auth-card .form-control::placeholder { color: rgba(255,255,255,.4); }
+
+.auth-card .form-control:focus {
+    background: rgba(255,255,255,.13);
+    border-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(12,192,192,.25);
+}
+
+.auth-card .text-muted { color: rgba(255,255,255,.55) !important; }
+.auth-card a { color: var(--primary); }
 
 .form-control {
     width: 100%;

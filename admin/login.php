@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="../assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
-            <?= SITE_NAME ?>
         </a>
         <div class="navbar-nav">
             <a href="../index.php">Student Login</a>

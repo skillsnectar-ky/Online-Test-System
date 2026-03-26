@@ -22,7 +22,6 @@
     <div class="container" style="max-width:100%;">
         <a class="navbar-brand" href="dashboard.php">
             <img src="../assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
-            <?= SITE_NAME ?> Admin
         </a>
         <div class="navbar-nav">
             <span style="color:rgba(255,255,255,.7); font-size:.9rem;">

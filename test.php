@@ -74,7 +74,6 @@ if (empty($mcqs)) {
     <div class="container">
         <a class="navbar-brand" href="dashboard.php">
             <img src="assets/images/logo.png" alt="<?= SITE_NAME ?>" onerror="this.style.display='none'">
-            <?= SITE_NAME ?>
         </a>
         <div class="navbar-nav">
             <a href="dashboard.php">Dashboard</a>
