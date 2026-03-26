@@ -4,7 +4,7 @@
 # config.php  ← uncomment this if you don't want DB credentials on GitHub
 
 # ── One-time utility (should be deleted after use anyway) ───
-update_admin_password.php
+# update_admin_password.php
 
 # ── System / IDE files ───────────────────────────────────────
 .DS_Store
