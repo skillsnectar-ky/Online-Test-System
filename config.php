@@ -7,13 +7,13 @@
 
 // ── Database credentials ────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');       // Change to your MySQL username
-define('DB_PASS', '');           // Change to your MySQL password
-define('DB_NAME', 'aspirian_test_system');
+define('DB_USER', 'u440219551_onlinetest');  // Hostinger DB username
+define('DB_PASS', 'ArfatGift@2018');          // Hostinger DB password
+define('DB_NAME', 'u440219551_online_test');  // Hostinger DB name
 
 // ── Site settings ────────────────────────────────────────────
 define('SITE_NAME',  'Aspirian.pk');
-define('SITE_URL',   'http://localhost/Online Test System'); // No trailing slash
+define('SITE_URL',   'https://aspirian.pk/test'); // No trailing slash
 define('TEST_TIME',  1800); // Seconds per test (30 minutes)
 define('MCQS_PER_TEST', 10); // Number of MCQs shown per test
 
